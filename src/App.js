@@ -1,13 +1,16 @@
 import React from 'react';
-import img1 from './images/Logo.png';
-import ContactForm from './ContactForm';
-
+import Navbar from './Navbar';
+import Dropdown from './Dropdown';
 
 function App() {
   return (
     <div className="App">
-      <img src={img1} alt="" class="center-image " />
-      <ContactForm />
+      <header>
+        <Navbar />
+        <Dropdown />
+      </header>
+      <main>
+      </main>
     </div>
   );
 }
