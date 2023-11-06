@@ -26,7 +26,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ForumIcon from '@mui/icons-material/Forum';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import img2 from './images/Logo.png';
+import img2 from './logo.svg';
 import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -42,6 +42,7 @@ import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Link from '@mui/material/Link';
+import { Routes } from 'react-router-dom';
 
 
 const drawerWidth = 240;
@@ -278,49 +279,19 @@ export default function MiniDrawer() {
           <Divider />
                     
                     {/* <---------------  Starting of SideBar(DashBoard ,Dispatch etc )------------>*/}
+                   
         <List> 
           <Box sx={{ typography: 'body1' }}>
           <ListItemButton onClick={handleClick1}>
                     <ListItemIcon>
                     <DashboardIcon />
                   </ListItemIcon>
-                  <Link href="/"><ListItemText primary="Dashboard" /></Link>
+              
+                  <Link href="/dashboard"><ListItemText primary="Dashboard" /></Link>
                   {open1 ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
-                </Box>
-                <Collapse in={open1} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText primary="Starred" />
-                    </ListItemButton>
-                  </List>
-                </Collapse>
-
-
-                <Box sx={{ typography: 'body1' }}>
-              <ListItemButton onClick={handleClick2}>
-                <ListItemIcon>
-                  <FireTruckIcon />
-                </ListItemIcon>
-                <Link href="/"><ListItemText primary="Dispatch Board" /></Link>
-                {open2 ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              </Box>
-              <Collapse in={open2} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
-
-
+        
+               
               <ListItemButton onClick={handleClick3}>
                 <ListItemIcon>
                   <AirportShuttleIcon />
@@ -470,19 +441,15 @@ export default function MiniDrawer() {
                   </ListItemButton>
                 </List>
               </Collapse>
+              </Box>
         </List>
-                               {/* https://mui.com/material-ui/react-list/ */}
+                    {/* https://mui.com/material-ui/react-list/ */}
                    {/* <---------------  Ending of SideBar(DashBoard ,Dispatch etc )------------>*/}
        <Divider />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography paragraph variant="body1">
-         Welcome to the
-        </Typography>
-        <Typography paragraph>
-          Dashboard
-        </Typography>
+       
       </Box>
     </Box>
   );

@@ -1,8 +1,9 @@
 import React from 'react';
 // import Navbar from './Navbar';
 import Dropdown from './Dropdown';
-import Dashboard from '@mui/icons-material/Dashboard';
-import { Route,Routes } from 'react-router-dom';
+import Dashboard from './Dashboard';
+import {  Route, Routes } from "react-router-dom"
+
 // import { Dashboarda } from './pages/Dashboard';
 // import { Dashboard } from '@mui/icons-material';
 
@@ -15,14 +16,15 @@ function App() {
         <Dropdown />
       </header>
       {/* <Dashboard/> */}
-      <nav>
-        <ul>
-          <li><a href="/Dashboarda">Dashboard</a></li>
-        </ul>
-      </nav>
       <Routes>
-      <Route path="/Dashboarda" element={<Dashboard/>} />
+        <Route
+            path="dashboard"
+            element={
+                <Dashboard />
+            }
+          />
     </Routes>
+    
 
     </div>
 
