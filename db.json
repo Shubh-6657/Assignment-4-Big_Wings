@@ -1,0 +1,36 @@
+{
+  "drivers": [ 
+    {
+      "orderID": "#12345678",
+      "productName": "Materials",
+      "departureLocation": "64N Avenue, USA",
+      "arrivalLocation": "13 Spring Hope lane, USA",
+      "driverName": "Shubh Ag",
+      "imageURL": "./pages/images/inn.jpg"
+    },
+    {
+      "orderID": "#23456789",
+      "productName": "Goods",
+      "departureLocation": "123 Main Street, USA",
+      "arrivalLocation": "456 Oak Avenue, USA",
+      "driverName": "John Doe",
+      "imageURL": "./pages/images/goods.jpg"
+    },
+    {
+      "orderID": "#34567890",
+      "productName": "Electronics",
+      "departureLocation": "789 Elm Lane, USA",
+      "arrivalLocation": "012 Pine Road, USA",
+      "driverName": "Jane Smith",
+      "imageURL": "./pages/images/electronics.jpg"
+    },
+    {
+      "orderID": "#45678901",
+      "productName": "Furniture",
+      "departureLocation": "345 Cedar Street, USA",
+      "arrivalLocation": "678 Birch Avenue, USA",
+      "driverName": "Mike Johnson",
+      "imageURL": "./pages/images/furniture.jpg"
+    }
+  ]
+}
