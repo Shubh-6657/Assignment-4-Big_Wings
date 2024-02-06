@@ -13,24 +13,30 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TripOriginSharpIcon from '@mui/icons-material/TripOriginSharp';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 export default function Drivers() {
   const [driverData, setDriverData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:3001/drivers');
-        setDriverData(response.data.drivers);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-  
-    fetchData();
+    const staticData = [
+      {
+        "orderID": "#12345678",
+        "productName": "Materials",
+        "departureLocation": "64N Avenue, USA",
+        "arrivalLocation": "13 Spring Hope lane, USA",
+        "driverName": "Shubh Ag",
+        "imageURL": "./pages/images/inn.jpg"
+      },
+    ];
+
+    setDriverData(staticData);
   }, []);
+
+  if (driverData.length === 0) {
+    return <div>Loading...</div>;
+  }
   
 
   if (!driverData || driverData.length === 0) {
@@ -49,7 +55,7 @@ export default function Drivers() {
             Order ID
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>
-            {driver.orderID}
+            {driver.driverName}
             </Typography>
           </div>
 
