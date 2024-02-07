@@ -1,21 +1,24 @@
 import React from 'react';
-// import Navbar from './Navbar';
 import Dropdown from './Dropdown';
-import Dashboard from './Dashboard';
-import {  Route, Routes } from "react-router-dom"
-
-// import { Dashboarda } from './pages/Dashboard';
-// import { Dashboard } from '@mui/icons-material';
+import Dashboard from './pages/Dashboard';
+import Dispatch from './pages/Dispatch';
+import Vehicle from './pages/Vehicle';
+import Drivers from './pages/Drivers';
+import Accounting from './pages/Accounting';
+import Reports from './pages/Reports';
+import Compliance from './pages/Compliance';
+import IFTA from './pages/IFTA';
+import Inspection from './pages/Inspection';
+import More from './pages/More';
+import {  Route, Routes } from "react-router-dom";
 
 
 function App() {
   return (
     <div className="App">
       <header>
-        {/* <Navbar /> */}
         <Dropdown />
       </header>
-      {/* <Dashboard/> */}
       <Routes>
         <Route
             path="dashboard"
@@ -23,13 +26,71 @@ function App() {
                 <Dashboard />
             }
           />
-    </Routes>
-    
 
+        <Route
+            path="dispatch"
+            element={
+                <Dispatch />
+            }
+          />
+
+        <Route
+            path="vehicle"
+            element={
+                <Vehicle />
+            }
+          />
+
+        <Route
+            path="drivers"
+            element={
+                <Drivers />
+            }
+          />
+
+        <Route
+            path="accounting"
+            element={
+                <Accounting />
+            }
+          />
+
+        <Route
+            path="reports"
+            element={
+                <Reports />
+            }
+          />
+
+        <Route
+            path="compliance"
+            element={
+                <Compliance />
+            }
+          />    
+
+        <Route
+            path="ifta"
+            element={
+                <IFTA />
+            }
+          />  
+
+        <Route
+            path="inspection"
+            element={
+                <Inspection />
+            }
+          />    
+
+        <Route
+            path="more"
+            element={
+                <More />
+            }
+          />  
+      </Routes>
     </div>
-
-
   );
 }
-
 export default App;

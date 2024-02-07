@@ -13,26 +13,41 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TripOriginSharpIcon from '@mui/icons-material/TripOriginSharp';
-// import axios from 'axios';
+import axios from 'axios';
 
 
 export default function Drivers() {
   const [driverData, setDriverData] = useState([]);
 
-  useEffect(() => {
-    const staticData = [
-      {
-        "orderID": "#12345678",
-        "productName": "Materials",
-        "departureLocation": "64N Avenue, USA",
-        "arrivalLocation": "13 Spring Hope lane, USA",
-        "driverName": "Shubh Ag",
-        "imageURL": "./pages/images/inn.jpg"
-      },
-    ];
+  // useEffect(() => {
+  //   const staticData = [
+  //     {
+  //       "orderID": "#12345678",
+  //       "productName": "Materials",
+  //       "departureLocation": "64N Avenue, USA",
+  //       "arrivalLocation": "13 Spring Hope lane, USA",
+  //       "driverName": "Shubh Ag",
+  //       "imageURL": "./pages/images/inn.jpg"
+  //     },
+  //   ];
 
-    setDriverData(staticData);
+  //   setDriverData(staticData);
+  // }, []);
+
+   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/drivers');
+        console.log(response.data)
+        setDriverData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
   }, []);
+  
 
   if (driverData.length === 0) {
     return <div>Loading...</div>;

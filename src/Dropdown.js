@@ -26,14 +26,14 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ForumIcon from '@mui/icons-material/Forum';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import img2 from './logo.svg';
-import Collapse from '@mui/material/Collapse';
+import img2 from './images/Logo.png';
+// import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
+// import StarBorder from '@mui/icons-material/StarBorder';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import FireTruckIcon from '@mui/icons-material/FireTruck';
-import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import PersonIcon from '@mui/icons-material/Person';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
@@ -42,7 +42,6 @@ import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Link from '@mui/material/Link';
-import { Routes } from 'react-router-dom';
 
 
 const drawerWidth = 240;
@@ -290,148 +289,96 @@ export default function MiniDrawer() {
                   <Link href="/dashboard"><ListItemText primary="Dashboard" /></Link>
                   {open1 ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
+
+
+                <ListItemButton onClick={handleClick2}>
+                <ListItemIcon>
+                  <FireTruckIcon />
+                </ListItemIcon>
+                <Link href="/dispatch"><ListItemText primary="Dispatch Board" /></Link>
+                {open2 ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+
         
                
               <ListItemButton onClick={handleClick3}>
                 <ListItemIcon>
-                  <AirportShuttleIcon />
+                  <LocalShippingIcon />
                 </ListItemIcon>
-                <Link href="/"><ListItemText primary="Vehicle" /></Link>
+                <Link href="/vehicle"><ListItemText primary="Vehicle" /></Link>
                 {open3 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <Collapse in={open3} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
+
 
 
               <ListItemButton onClick={handleClick4}>
                 <ListItemIcon>
                   <PersonIcon />
                 </ListItemIcon>
-                <ListItemText primary="Drivers" />
+                <Link href="/drivers"><ListItemText primary="Drivers" /></Link>
                 {open4 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <Collapse in={open4} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
+
 
 
               <ListItemButton onClick={handleClick5}>
                 <ListItemIcon>
                   <AccountBalanceWalletIcon />
                 </ListItemIcon>
-                <ListItemText primary="Accounting" />
+                <Link href="/accounting"><ListItemText primary="Accounting" /></Link>
                 {open5 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <Collapse in={open5} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
+
 
 
               <ListItemButton onClick={handleClick6}>
                 <ListItemIcon>
                   <TextSnippetIcon />
                 </ListItemIcon>
-                <ListItemText primary="Reports" />
+                <Link href="/reports"><ListItemText primary="Reports" /></Link>
                 {open6 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <Collapse in={open6} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
+
 
 
               <ListItemButton onClick={handleClick7}>
                 <ListItemIcon>
                   <GavelIcon />
                 </ListItemIcon>
-                <ListItemText primary="Compliance" />
+                <Link href="/compliance"><ListItemText primary="Compliance" /></Link>
                 {open7 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <Collapse in={open7} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
+
 
 
               <ListItemButton onClick={handleClick8}>
                 <ListItemIcon>
                   <LocalGasStationIcon />
                 </ListItemIcon>
-                <ListItemText primary="IFTA" />
+                <Link href="/ifta"><ListItemText primary="IFTA" /></Link>
                 {open8 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <Collapse in={open8} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
+
 
 
               <ListItemButton onClick={handleClick9}>
                 <ListItemIcon>
                   <BookmarkAddedIcon />
                 </ListItemIcon>
-                <ListItemText primary="Inspection" />
+                <Link href="/inspection"><ListItemText primary="Inspection" /></Link>
                 {open9 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <Collapse in={open9} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
+
+
 
               <ListItemButton onClick={handleClick10}>
                 <ListItemIcon>
                   <MoreHorizIcon />
                 </ListItemIcon>
-                <ListItemText primary="More" />
+                <Link href="/more"><ListItemText primary="More" /></Link>
                 {open10 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-              <Collapse in={open10} timeout="auto" unmountOnExit>
+              {/* <Collapse in={open10} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
@@ -440,7 +387,7 @@ export default function MiniDrawer() {
                     <ListItemText primary="Starred" />
                   </ListItemButton>
                 </List>
-              </Collapse>
+              </Collapse> */}
               </Box>
         </List>
                     {/* https://mui.com/material-ui/react-list/ */}
