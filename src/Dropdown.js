@@ -282,40 +282,40 @@ export default function MiniDrawer() {
         <List> 
           <Box sx={{ typography: 'body1' }}>
           <ListItemButton onClick={handleClick1}>
-                    <ListItemIcon>
+          <Link href="/dashboard" sx={{ display: 'flex'}}> <ListItemIcon>
                     <DashboardIcon />
                   </ListItemIcon>
               
-                  <Link href="/dashboard"><ListItemText primary="Dashboard" /></Link>
+                  <ListItemText primary="Dashboard" /></Link>
                   {open1 ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
 
 
                 <ListItemButton onClick={handleClick2}>
-                <ListItemIcon>
+                <Link href="/dispatch" sx={{ display: 'flex'}}> <ListItemIcon>
                   <FireTruckIcon />
                 </ListItemIcon>
-                <Link href="/dispatch"><ListItemText primary="Dispatch Board" /></Link>
+                <ListItemText primary="Dispatch Board" /></Link>
                 {open2 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
 
         
                
               <ListItemButton onClick={handleClick3}>
-                <ListItemIcon>
+              <Link href="/vehicle" sx={{ display: 'flex'}}> <ListItemIcon>
                   <LocalShippingIcon />
                 </ListItemIcon>
-                <Link href="/vehicle"><ListItemText primary="Vehicle" /></Link>
+               <ListItemText primary="Vehicle" /></Link>
                 {open3 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
 
 
 
-              <ListItemButton onClick={handleClick4}>
-                <ListItemIcon>
+              <ListItemButton onClick={handleClick4} >
+              <Link href="/drivers" sx={{ display: 'flex'}}> <ListItemIcon>
                   <PersonIcon />
                 </ListItemIcon>
-                <Link href="/drivers"><ListItemText primary="Drivers" /></Link>
+               <ListItemText primary="Drivers" /></Link>
                 {open4 ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
 

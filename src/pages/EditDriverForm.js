@@ -1,12 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import Typography from '@mui/material/Typography';
+import {  useParams } from "react-router-dom"
+import axios from 'axios';
 
 function EditDriverForm(props) {
+    const { id } = useParams()
     const [formData, setFormData] = useState(props.currentUser);
+    console.log(id,"id");
+    const getById = async (id) => {
+        try {
+          const response = await axios.get(`http://localhost:3001/drivers/${id}`);
+          // Assuming the response data contains the driver information
+          setFormData(response.data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
 
-    useEffect(() => {
-        setFormData(props.currentUser);
-    }, [props]);
+    useEffect( () => {
+        getById(id);
+    }, [id]);
 
     const handleInputChange = event => {
         const { name, value } = event.target;
@@ -16,7 +29,7 @@ function EditDriverForm(props) {
     const handleSubmit = event => {
         event.preventDefault();
 
-        if (!formData.firstName || !formData.lastName || !formData.email) {
+        if (!formData?.driverName || !formData?.lastName || !formData?.email) {
             alert('Please fill in all required fields.');
             return;
         }
@@ -59,16 +72,16 @@ function EditDriverForm(props) {
             <h2 style={{ textAlign: 'center' }}>Edit Driver</h2>
             <form onSubmit={handleSubmit}>
                 <label>First Name*</label>
-                <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder="First Name" style={{ width: '258px', height: '37px' }} required />
+                <input type="text" name="driverName" value={formData?.driverName} onChange={handleInputChange} placeholder="First Name" style={{ width: '258px', height: '37px' }} required />
                 
                 <label>Last Name*</label>
-                <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder="Last Name" style={{ width: '258px', height: '37px' }} required />
+                <input type="text" name="lastName" value={formData?.lastName} onChange={handleInputChange} placeholder="Last Name" style={{ width: '258px', height: '37px' }} required />
 
                 <label>Date Of Birth</label>
                 
 
                 <label>Email*</label>
-                <input type="text" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" style={{ width: '258px', height: '37px' }} required />
+                <input type="text" name="email" value={formData?.email} onChange={handleInputChange} placeholder="Email" style={{ width: '258px', height: '37px' }} required />
 
                
 

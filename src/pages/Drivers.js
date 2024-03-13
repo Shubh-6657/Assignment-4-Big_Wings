@@ -35,6 +35,7 @@ function Drivers() {
   }, []);
 
 
+ 
   const handleDelete = async (driverId) => {
     try {
       await axios.delete(`http://localhost:3001/drivers/${driverId}`);
@@ -69,7 +70,8 @@ function Drivers() {
                     </Typography>
                   </div>
                 </div>
-                <IconButton component={Link} to="/add-driver" aria-label="edit" sx={{ fontSize: '36px', padding: '3px', marginLeft: '55px' }} color="inherit">
+               
+                <IconButton component={Link} to={`/edit-driver/${driver.id}`}   aria-label="edit" sx={{ fontSize: '36px', padding: '3px', marginLeft: '55px' }} color="inherit" >
                   <EditNoteIcon />
                 </IconButton>
                 <IconButton type="button" aria-label="delete" sx={{ fontSize: '36px', padding: '3px', marginLeft: '10px' }} color="inherit" onClick={() => handleDelete(driver.id)}>
