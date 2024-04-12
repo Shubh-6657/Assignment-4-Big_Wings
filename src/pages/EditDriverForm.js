@@ -80,9 +80,12 @@ function EditDriverForm(props) {
     };
 
     const handleFileInputChange = event => {
-        const file = event.target.files[0];
-        setFormData({ ...formData, image: file });
-    };    
+        const { name, value } = event.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    }; 
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -137,7 +140,7 @@ function EditDriverForm(props) {
                     <div>
                         <Typography variant="subtitle1" sx={{ fontSize: '14px' }}>Date Of Birth</Typography>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <DatePicker label="Small picker" slotProps={{ textField: { size: 'small' } }} value={formData?.date} onChange={(newValue) => setFormData({ ...formData, date: newValue })} renderInput={(props) => <input {...props} />} />
+                            <DatePicker slotProps={{ textField: { size: 'small' } }} value={formData?.date} onChange={(newValue) => setFormData({ ...formData, date: newValue })} renderInput={(props) => <input {...props} />} />
                         </LocalizationProvider>
                     </div>
                     <div>
@@ -195,11 +198,10 @@ function EditDriverForm(props) {
                     <div>
                         <Typography variant="subtitle1" sx={{ fontSize: '14px' }}>Address</Typography>
                         <input type="text" name="address" value={formData?.address} onChange={handleInputChange} placeholder="Address" style={{ width: '258px', height: '37px', border: formErrors.address ? '1px solid red' : '1px solid #ccc' }} required/>
-                        {/* {formErrors.address && <Typography variant="subtitle2" color="error" sx={{ fontSize: '12px' }}>{formErrors.address}</Typography>} */}
                     </div>
                     <div>
                         <Typography variant="subtitle1" sx={{ fontSize: '14px' }}>Image</Typography>
-                        <input type="file" accept="image/*" name="image" onChange={handleFileInputChange} style={{ width: '258px', height: '37px', padding: '5px', borderRadius: '5px', border: formErrors.image ? '1px solid red' : '1px solid #ccc' }}/>
+                        <input type="file"  name="image" onChange={handleFileInputChange} style={{ width: '258px', height: '37px', padding: '5px', borderRadius: '5px', border: formErrors.image ? '1px solid red' : '1px solid #ccc' }}/>
                         {formErrors.image && <Typography variant="subtitle2" color="error" sx={{ fontSize: '12px' }}>{formErrors.image}</Typography>}
                     </div>
                 </div>
