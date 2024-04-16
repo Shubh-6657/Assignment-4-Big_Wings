@@ -6,15 +6,8 @@
       "departureLocation": "64N Avenue, USA",
       "arrivalLocation": "13 Spring Hope lane, USA",
       "driverName": "Shubh Ag",
-      "imageURL": "./pages/images/inn.jpg"
-    },
-    {
-      "orderID": "#23456789",
-      "productName": "Goods",
-      "departureLocation": "123 Main Street, USA",
-      "arrivalLocation": "456 Oak Avenue, USA",
-      "driverName": "John Doe",
-      "imageURL": "./pages/images/goods.jpg"
+      "imageURL": "./pages/images/inn.jpg",
+      "id": "54e2"
     },
     {
       "orderID": "#34567890",
@@ -22,7 +15,8 @@
       "departureLocation": "789 Elm Lane, USA",
       "arrivalLocation": "012 Pine Road, USA",
       "driverName": "Jane Smith",
-      "imageURL": "./pages/images/electronics.jpg"
+      "imageURL": "./pages/images/electronics.jpg",
+      "id": "a78a"
     },
     {
       "orderID": "#45678901",
@@ -30,7 +24,8 @@
       "departureLocation": "345 Cedar Street, USA",
       "arrivalLocation": "678 Birch Avenue, USA",
       "driverName": "Mike Johnson",
-      "imageURL": "./pages/images/furniture.jpg"
+      "imageURL": "./pages/images/furniture.jpg",
+      "id": "709a"
     },
     {
       "id": "123",
@@ -286,6 +281,24 @@
       "image": "",
       "licenseCase": "",
       "drivingExperience": ""
+    },
+    {
+      "id": "9b66",
+      "firstName": "Lalita",
+      "lastName": "Pundir",
+      "email": "lalita@bigwings.us",
+      "phoneNo": "8786751232",
+      "ssn": "werer",
+      "country": "India",
+      "zipcode": "123",
+      "status": "ere",
+      "city": "New York",
+      "address": "Moahli",
+      "image": {
+        "0": {}
+      },
+      "licenseCase": "erer",
+      "drivingExperience": "1"
     }
   ]
 }

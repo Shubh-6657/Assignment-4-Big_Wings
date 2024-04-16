@@ -12,6 +12,7 @@ import IFTA from "./pages/IFTA";
 import Inspection from "./pages/Inspection";
 import More from "./pages/More";
 import { Route, Routes } from "react-router-dom";
+import AddDriverForm from "./pages/AddDriverForm";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="vehicle" element={<Vehicle />} />
 
         <Route path="drivers" element={<Drivers />} />
+        <Route path="add-driver" element={<AddDriverForm />} />
         <Route path="edit-driver/:id" element={<EditDriverForm />} />
         <Route path="accounting" element={<Accounting />} />
 
