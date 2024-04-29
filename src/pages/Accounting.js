@@ -61,9 +61,9 @@ export default function Accounting() {
     //   };
        
     return (
-        <Box>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
             <stack style={{ position: 'absolute', top: 70, right: 27 }}>
-            <Select style={{ width: '140px', height: '42px', fontSize: '16px', textAlign: 'center' }} inputProps={{ 'aria-label': 'Without label' }}>
+            <Select sx={{  width: '140px', maxWidth: '200px', mb: '10px', height: '42px' }} inputProps={{ 'aria-label': 'Without label' }}>
                         <MenuItem value="">
                           <em>None</em>
                         </MenuItem>
@@ -82,7 +82,7 @@ export default function Accounting() {
             <Box component="main" sx={{ flexGrow: 1, p: 3 ,marginLeft: '50px', display: 'flex', gap: '20px'}}>
 
                 <stack>
-                    <Card sx={{ width: 440, position: 'relative', cursor: 'pointer', backgroundColor: isInvoiceClicked ? '#e0e0e0' : 'inherit' }} onClick={handleInvoiceClick}>
+                    <Card sx={{ width: 440, maxWidth: '500px', position: 'relative', cursor: 'pointer', mb: '20px', backgroundColor: isInvoiceClicked ? '#e0e0e0' : 'inherit' }} onClick={handleInvoiceClick}>
                         <CardContent>
                             <InsertDriveFileTwoToneIcon fontSize="small" />
                             <Typography gutterBottom variant="h5" sx={{ display: 'inline-block', marginLeft: '8px' }}>
@@ -146,7 +146,7 @@ export default function Accounting() {
                         </CardContent>
                     </Card>
                     {isInvoiceClicked && (
-                        <stack style={{ position: 'absolute', top: 300, left: 75, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
+                        <stack style={{ position: 'absolute', top: 314, left: 65, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
                             <stack>
                                 <Typography variant="h4" style={{ fontWeight: 'bold', marginRight: '10px', fontSize: '13px' }}>
                                     Invoices
@@ -314,7 +314,7 @@ export default function Accounting() {
                         </CardContent>
                     </Card>
                     {isExpensesClicked && (
-                        <stack style={{ position: 'absolute', top: 300, left: 75, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
+                        <stack style={{ position: 'absolute', top: 314, left: 65, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)'}}>
                             <stack>
                                 <Typography variant="h4" style={{ fontWeight: 'bold', marginRight: '10px', fontSize: '13px' }}>
                                     Expenses
@@ -471,7 +471,7 @@ export default function Accounting() {
                         </CardContent>
                     </Card>
                     {isDriverPayClicked && (
-                        <stack style={{ position: 'absolute', top: 300, left: 75, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
+                        <stack style={{ position: 'absolute', top: 314, left: 65, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)'}}>
                             <stack>
                                 <Typography variant="h4" style={{ fontWeight: 'bold', marginRight: '10px', fontSize: '13px' }}>
                                     Invoices
