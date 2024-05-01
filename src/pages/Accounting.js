@@ -21,7 +21,7 @@ export default function Accounting() {
     const [isExpensesClicked, setIsExpensesClicked] = useState(false);
     const [isDriverPayClicked, setIsDriverPayClicked] = useState(false);
     const [openTable, setOpenTable] = React.useState(false);
-    const [openTable1, setOpenTable1] = React.useState(false);
+    // const [openTable1, setOpenTable1] = React.useState(false);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -30,17 +30,17 @@ export default function Accounting() {
       setOpenTable(true);
     };
 
-    const handleButtonClick1 = () => {
-        setOpenTable1(true);
-      };
+    // const handleButtonClick1 = () => {
+    //     setOpenTable1(true);
+    //   };
   
     const handleCloseTable = () => {
       setOpenTable(false);
     };
 
-    const handleCloseTable1 = () => { 
-        setOpenTable1(false);
-      };
+    // const handleCloseTable1 = () => { 
+    //     setOpenTable1(false);
+    //   };
 
     const handleInvoiceClick = () => {
         setIsInvoiceClicked(!isInvoiceClicked);
@@ -348,11 +348,11 @@ export default function Accounting() {
                                       </Typography>
                                     </Avatar>
                                   }
-                                  onClick={handleButtonClick1}
+                                //   onClick={handleButtonClick1}
                                 >
                                   All
                                 </Button>
-                                <TableContent openTable1={openTable1} handleCloseTable1={handleCloseTable1} />
+                                {/* <TableContent openTable1={openTable1} handleCloseTable1={handleCloseTable1} /> */}
                                 </stack>
                                 {/* {openTable && (
                                     <stack style={{ position: 'absolute', top: 85, left: 1, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
