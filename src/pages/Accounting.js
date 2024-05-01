@@ -12,7 +12,7 @@ import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 import InputAdornment from '@mui/material/InputAdornment';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Checkbox from '@mui/material/Checkbox';
-import { tableData } from './TableContent';
+import TableContent,{ tableData } from './TableContent';
 import ExpensesModal from './ExpensesModal'; 
 import MenuItem from '@mui/material/MenuItem';
 
@@ -21,6 +21,7 @@ export default function Accounting() {
     const [isExpensesClicked, setIsExpensesClicked] = useState(false);
     const [isDriverPayClicked, setIsDriverPayClicked] = useState(false);
     const [openTable, setOpenTable] = React.useState(false);
+    const [openTable1, setOpenTable1] = React.useState(false);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -28,10 +29,18 @@ export default function Accounting() {
     const handleButtonClick = () => {
       setOpenTable(true);
     };
+
+    const handleButtonClick1 = () => {
+        setOpenTable1(true);
+      };
   
     const handleCloseTable = () => {
       setOpenTable(false);
     };
+
+    const handleCloseTable1 = () => { 
+        setOpenTable1(false);
+      };
 
     const handleInvoiceClick = () => {
         setIsInvoiceClicked(!isInvoiceClicked);
@@ -153,6 +162,7 @@ export default function Accounting() {
                                 </Typography>
                             </stack>
                             <stack style={{ display: 'flex', gap: '15px', marginTop: '10px' }}>
+                                <stack sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
                                 <Button
                                   variant="outlined"
                                   style={{ fontSize: "9px", height: "25px", padding: "3px 8px" }}
@@ -167,7 +177,13 @@ export default function Accounting() {
                                   >
                                   Pending Invoice
                                 </Button>
-                                    {openTable && (
+                                <TableContent openTable={openTable} handleCloseTable={handleCloseTable} />
+                                </stack>
+                                {/* <stack style={{ position: 'relative' }}>
+                                  <Button variant="contained" style={{ fontSize: '8px', height: '30px', padding: '3px 8px' }} onClick={handleOpen}>Add Expenses</Button>
+                                  <ExpensesModal open={open} handleClose={handleClose} handleFormSubmit={handleFormSubmit} />
+                                </stack> */}
+                                    {/* {openTable && (
                                        <stack style={{ position: 'absolute', top: 85, left: 1, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
                                             <Box sx={{ border: "1px solid #ccc", borderRadius: 4, padding: 2 }}>
                                                 <Box sx={{maxHeight: '300px', overflowY: 'auto',}}>
@@ -220,7 +236,7 @@ export default function Accounting() {
                                                 </Button>
                                             </Box>
                                         </stack>
-                                    )}
+                                    )} */}
                                     <Button
                                         variant="outlined"
                                         style={{ fontSize: '9px', height: '25px', padding: '3px 8px' }}
@@ -321,6 +337,7 @@ export default function Accounting() {
                                 </Typography>
                             </stack>
                             <stack style={{ display: 'flex', gap: '15px', marginTop: '10px' }}>
+                                <stack sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
                                 <Button
                                   variant="outlined"
                                   style={{ fontSize: "9px", height: "25px", padding: "3px 8px" }}
@@ -331,11 +348,13 @@ export default function Accounting() {
                                       </Typography>
                                     </Avatar>
                                   }
-                                  onClick={handleButtonClick}
+                                  onClick={handleButtonClick1}
                                 >
                                   All
                                 </Button>
-                                {openTable && (
+                                <TableContent openTable1={openTable1} handleCloseTable1={handleCloseTable1} />
+                                </stack>
+                                {/* {openTable && (
                                     <stack style={{ position: 'absolute', top: 85, left: 1, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
                                         <Box sx={{ border: "1px solid #ccc", borderRadius: 4, padding: 2 }}>
                                             <Box sx={{maxHeight: '300px', overflowY: 'auto',}}>
@@ -391,7 +410,7 @@ export default function Accounting() {
                                             </Button>
                                         </Box>
                                     </stack>
-                                )}
+                                )} */}
                                 <Button
                                     variant="outlined"
                                     style={{ fontSize: '9px', height: '25px', padding: '3px 8px' }}
@@ -478,6 +497,7 @@ export default function Accounting() {
                                 </Typography>
                             </stack>
                             <stack style={{ display: 'flex', gap: '15px', marginTop: '10px' }}>
+                                <stack>
                                 <Button
                                   variant="outlined"
                                   style={{ fontSize: "9px", height: "25px", padding: "3px 8px" }}
@@ -492,6 +512,7 @@ export default function Accounting() {
                                     >
                                     Paid
                                 </Button>
+                                </stack>
                                 {openTable && (
                                     <stack style={{ position: 'absolute', top: 85, left: 1, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
                                         <Box sx={{ border: "1px solid #ccc", borderRadius: 4, padding: 2 }}>
