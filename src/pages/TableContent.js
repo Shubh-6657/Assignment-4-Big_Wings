@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { Box, Typography, Button, Checkbox, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
+
 export const tableData = [
     {
       invoiceNo: "12345",
@@ -169,3 +172,138 @@ export const tableData = [
       },
     // Add more rows as needed
   ];
+
+  const TableContent = () => {
+    const [openTable, setOpenTable] = useState(true);
+    // const [openTable1, setOpenTable1] = useState(true);
+  
+    const handleCloseTable = () => {
+      setOpenTable(false);
+    };
+
+    // const handleCloseTable1 = () => {
+    //   setOpenTable1(false);
+    // };
+  
+    return (
+      <>
+      <Box>
+                                    {openTable && (
+                                       <stack style={{ position: 'absolute', top: 85, left: 1, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
+                                            <Box sx={{ border: "1px solid #ccc", borderRadius: 4, padding: 2 }}>
+                                                <Box sx={{maxHeight: '300px', overflowY: 'auto',}}>
+                                                    <Table>
+                                                        <TableHead>
+                                                            <TableRow>
+                                                              <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '110px' }}>
+                                                                  <Checkbox /> Invoice No.
+                                                              </TableCell>
+                                                              <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '110px' }}>Customer Name</TableCell>
+                                                              <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '110px' }}>Factoring Company</TableCell>
+                                                              <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '110px' }}>Due Date</TableCell>
+                                                              <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '48px' }}>
+                                                                  Invoice Total
+                                                                  <stack style={{ display: 'flex', alignItems: 'center', marginTop: '1px' }}>
+                                                                      <Box
+                                                                          sx={{
+                                                                          width: 10,height: 10,borderRadius: 1,display: 'inline-block',bgcolor: 'green','&:hover': {bgcolor: 'darkgreen',},
+                                                                          }}
+                                                                      />
+                                                                          <Typography variant="body2" style={{ marginLeft: '5px' }}>Paid</Typography>
+                                                                      <Box
+                                                                        sx={{
+                                                                          width: 10,height: 10,marginLeft: 1,borderRadius: 1,display: 'inline-block',bgcolor: 'red', '&:hover': {bgcolor: 'darkred', },
+                                                                        }}
+                                                                      />
+                                                                          <Typography variant="body2" style={{ marginLeft: '5px' }}>Unpaid</Typography>
+                                                                  </stack>
+                                                              </TableCell>
+                                                            </TableRow>
+                                                        </TableHead>
+                                                        <TableBody>
+                                                          {tableData.map((row, index) => (
+                                                            <TableRow key={index}>
+                                                            <TableCell style={{ paddingRight: '125px' }}>
+                                                                <Checkbox />
+                                                                {row.invoiceNo}
+                                                            </TableCell>
+                                                            <TableCell>{row.customerName}</TableCell>
+                                                            <TableCell>{row.factoringCompany}</TableCell>
+                                                            <TableCell>{row.dueDate}</TableCell>
+                                                            <TableCell>{row.invoice}</TableCell>
+                                                            </TableRow>
+                                                            ))}
+                                                        </TableBody>
+                                                    </Table>
+                                                </Box>
+                                                <Button variant="outlined" onClick={handleCloseTable}>
+                                                    Close Table
+                                                </Button>
+                                            </Box>
+                                        </stack>
+                                    )}
+</Box>
+{/* <Box>
+{openTable1 && (
+                                    <stack style={{ position: 'absolute', top: 85, left: 1, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
+                                        <Box sx={{ border: "1px solid #ccc", borderRadius: 4, padding: 2 }}>
+                                            <Box sx={{maxHeight: '300px', overflowY: 'auto',}}>
+                                                <Table>
+                                                  <TableHead>
+                                                    <TableRow>
+                                                      <TableCell style={{ whiteSpace: 'nowrap', paddingRight: '94px' }}>
+                                                        <stack style={{ display: 'flex', alignItems: 'center' }}>
+                                                          <Checkbox />
+                                                          <Typography style={{ fontWeight: 'bold', marginLeft: '5px' }}>Receipt No.</Typography>
+                                                        </stack>
+                                                      </TableCell>
+                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '97px' }}>Merchant</TableCell>
+                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '72px' }}>Stop Location</TableCell>
+                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '94px' }}>Date</TableCell>
+                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '94px' }}>Paid By</TableCell>
+                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '28px' }}>
+                                                        Total Amount
+                                                        <stack style={{ display: 'flex', alignItems: 'center', marginTop: '1px' }}>
+                                                          <Box
+                                                            sx={{ width: 10,height: 10,borderRadius: 1,display: 'inline-block',bgcolor: 'green','&:hover': {bgcolor: 'darkgreen',},
+                                                            }}
+                                                          />
+                                                          <Typography variant="body2" style={{ marginLeft: '5px' }}>Approved</Typography>
+                                                          <Box
+                                                            sx={{ width: 10,height: 10,marginLeft: 1,borderRadius: 1,display: 'inline-block',bgcolor: 'red','&:hover': {bgcolor: 'darkred',},
+                                                            }}
+                                                          />
+                                                          <Typography variant="body2" style={{ marginLeft: '5px' }}>Declined</Typography>
+                                                        </stack>
+                                                      </TableCell>
+                                                    </TableRow>
+                                                  </TableHead>
+                                                  <TableBody>
+                                                    {tableData.map((row, index) => (
+                                                      <TableRow key={index}>
+                                                        <TableCell style={{ paddingRight: '125px' }}>
+                                                          <Checkbox />
+                                                          {row.invoiceNo}
+                                                        </TableCell>
+                                                        <TableCell>{row.customerName}</TableCell>
+                                                        <TableCell>{row.stopLocation}</TableCell>
+                                                        <TableCell>{row.dueDate}</TableCell>
+                                                        <TableCell>{row.customerName}</TableCell>
+                                                        <TableCell>{row.invoice}</TableCell>
+                                                      </TableRow>
+                                                    ))}
+                                                  </TableBody>
+                                                </Table>
+                                            </Box>
+                                            <Button variant="outlined" onClick={handleCloseTable1}>
+                                              Close Table
+                                            </Button>
+                                        </Box>
+                                    </stack>
+                                )}
+                                </Box> */}
+      </>
+    );
+  };
+  
+export default TableContent;
