@@ -44,14 +44,20 @@ export default function Accounting() {
 
     const handleInvoiceClick = () => {
         setIsInvoiceClicked(!isInvoiceClicked);
+        setIsExpensesClicked(false);
+        setIsDriverPayClicked(false);
     };
 
     const handleExpensesClick = () => {
         setIsExpensesClicked(!isExpensesClicked);
+        setIsInvoiceClicked(false);
+        setIsDriverPayClicked(false);
     };
 
     const handleDriverPayClick = () => {
         setIsDriverPayClicked(!isDriverPayClicked);
+        setIsInvoiceClicked(false);
+        setIsExpensesClicked(false);
     };
 
     const handleFormSubmit = (e) => {
