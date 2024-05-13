@@ -42,7 +42,40 @@ import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Link from '@mui/material/Link';
+import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
+// import Box from '@mui/joy/Box';
+import Button from '@mui/joy/Button';
 
+const useEnhancedEffect =
+  typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+
+function ModeSwitcher() {
+  const { mode, setMode } = useColorScheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+  return (
+    <Button
+      variant="soft"
+      color="neutral"
+      onClick={() => setMode(mode === 'dark' ? 'light' : 'dark')}
+    >
+      {mode === 'dark' ? 'Turn light' : 'Turn dark'}
+    </Button>
+  );
+}
+
+// export default function ModeToggle() {
+//   const [node, setNode] = React.useState(null);
+//   useEnhancedEffect(() => {
+//     setNode(document.getElementById('mode-toggle'));
+//   }, []);
 
 const drawerWidth = 240;
 
@@ -112,6 +145,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 
 export default function MiniDrawer() {
+  const [node, setNode] = React.useState(null);
+  useEnhancedEffect(() => {
+    setNode(document.getElementById('mode-toggle'));
+  }, []);
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -205,6 +242,25 @@ export default function MiniDrawer() {
             <ul style={{ display: 'flex', listStyle: 'none', padding: '0'}}>
             </ul>
           </Typography>
+                                   <CssVarsProvider
+      colorSchemeNode={node || null}
+      colorSchemeSelector="#mode-toggle"
+      modeStorageKey="mode-toggle-demo"
+    >
+      <Box
+        id="mode-toggle"
+        sx={{
+          textAlign: 'center',
+          flexGrow: 1,
+          p: 2,
+          m: -3,
+          marginLeft: 60,
+          borderRadius: [0, 'sm'],
+        }}
+      >
+        <ModeSwitcher />
+      </Box>
+    </CssVarsProvider>
           <Box sx={{ flexGrow: 0 }}>
           <IconButton type="button"aria-label="search" sx={{ fontSize: '36px', padding: '10px' }} color="inherit">
             <SearchIcon />
