@@ -13,9 +13,59 @@ import Inspection from "./pages/Inspection";
 import More from "./pages/More";
 import { Route, Routes } from "react-router-dom";
 import AddDriverForm from "./pages/AddDriverForm";
+import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
+import Box from '@mui/joy/Box';
+import Button from '@mui/joy/Button';
+import  { createTheme, ThemeProvider } from '@mui/material/styles';
+
+// const useEnhancedEffect =
+//   typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+
+const theme = createTheme();
+
+function ModeSwitcher() {
+  const { mode, setMode } = useColorScheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+  return (
+    <Button
+      variant="soft"
+      color="neutral"
+      onClick={() => setMode(mode === 'dark' ? 'light' : 'dark')}
+    >
+      {mode === 'dark' ? 'Turn light' : 'Turn dark'}
+    </Button>
+  );
+}
+
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
+      <>
+    <CssVarsProvider
+    // colorSchemeNode={node || null}
+    colorSchemeSelector="#mode-toggle"
+    modeStorageKey="mode-toggle-demo"
+  >
+    <Box
+      id="mode-toggle"
+      sx={{
+        textAlign: 'center',
+        flexGrow: 1,
+        p: 2,
+        m: -3,
+        borderRadius: [0, 'sm'],
+      }}
+    >
+      <ModeSwitcher />
     <div className="App">
       <header>
         <Dropdown />
@@ -43,6 +93,10 @@ function App() {
         <Route path="more" element={<More />} />
       </Routes>
     </div>
-  );
+     </Box>
+    </CssVarsProvider>
+    </>
+    </ThemeProvider>
+  ); 
 }
 export default App;
