@@ -14,14 +14,13 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import Checkbox from '@mui/material/Checkbox';
 import TableContent,{ tableData } from './TableContent';
 import ExpensesModal from './ExpensesModal'; 
-import MenuItem from '@mui/material/MenuItem';
+import MenuItem from '@mui/material/MenuItem';  
 
 export default function Accounting() {
     const [isInvoiceClicked, setIsInvoiceClicked] = useState(false);
     const [isExpensesClicked, setIsExpensesClicked] = useState(false);
     const [isDriverPayClicked, setIsDriverPayClicked] = useState(false);
     const [openTable, setOpenTable] = React.useState(false);
-    // const [openTable1, setOpenTable1] = React.useState(false);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -30,17 +29,9 @@ export default function Accounting() {
       setOpenTable(true);
     };
 
-    // const handleButtonClick1 = () => {
-    //     setOpenTable1(true);
-    //   };
-  
     const handleCloseTable = () => {
       setOpenTable(false);
     };
-
-    // const handleCloseTable1 = () => { 
-    //     setOpenTable1(false);
-    //   };
 
     const handleInvoiceClick = () => {
         setIsInvoiceClicked(!isInvoiceClicked);
@@ -64,16 +55,6 @@ export default function Accounting() {
         e.preventDefault();
         //form submission logic
       };
-
-    //   const style1 = {
-    //     py: 0,
-    //     width: '100%',
-    //     maxWidth: 360,
-    //     borderRadius: 2,
-    //     border: '10px solid',
-    //     borderColor: 'divider',
-    //     backgroundColor: 'background.paper',
-    //   };
        
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
@@ -88,16 +69,16 @@ export default function Accounting() {
                       </Select>
             </stack>
 
-            <stack style={{ position: 'absolute', top: 75, left: 75, display: 'flex', alignItems: 'center', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '8px' }}>
+            <Box style={{ position: 'absolute', top: 75, left: 75, display: 'flex', alignItems: 'center', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '8px' }}>
                 <Typography variant="h4" style={{ fontWeight: 'bold', marginRight: '10px', fontSize: '13px' }}>
                     Overview
                 </Typography>
                 <FullscreenExitTwoToneIcon fontSize="small" />
-            </stack>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 ,marginLeft: '50px', display: 'flex', gap: '20px'}}>
+            </Box>
+            <Box component="main" sx={{ xs: '100%', sm: '33%',flexGrow: 1, p: 3 ,marginLeft: '50px', display: 'flex', gap: '20px'}}>
 
                 <stack>
-                    <Card sx={{ width: 440, maxWidth: '500px', position: 'relative', cursor: 'pointer', mb: '20px', backgroundColor: isInvoiceClicked ? '#e0e0e0' : 'inherit' }} onClick={handleInvoiceClick}>
+                    <Card sx={{ width: 380, maxWidth: '500px', position: 'relative', cursor: 'pointer', mb: '20px', backgroundColor: isInvoiceClicked ? '#e0e0e0' : 'inherit' }} onClick={handleInvoiceClick}>
                         <CardContent>
                             <InsertDriveFileTwoToneIcon fontSize="small" />
                             <Typography gutterBottom variant="h5" sx={{ display: 'inline-block', marginLeft: '8px' }}>
@@ -185,64 +166,6 @@ export default function Accounting() {
                                 </Button>
                                 <TableContent openTable={openTable} handleCloseTable={handleCloseTable} />
                                 </stack>
-                                {/* <stack style={{ position: 'relative' }}>
-                                  <Button variant="contained" style={{ fontSize: '8px', height: '30px', padding: '3px 8px' }} onClick={handleOpen}>Add Expenses</Button>
-                                  <ExpensesModal open={open} handleClose={handleClose} handleFormSubmit={handleFormSubmit} />
-                                </stack> */}
-                                    {/* {openTable && (
-                                       <stack style={{ position: 'absolute', top: 85, left: 1, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
-                                            <Box sx={{ border: "1px solid #ccc", borderRadius: 4, padding: 2 }}>
-                                                <Box sx={{maxHeight: '300px', overflowY: 'auto',}}>
-                                                    <Table>
-                                                        <TableHead>
-                                                            <TableRow>
-                                                              <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '110px' }}>
-                                                                  <Checkbox /> Invoice No.
-                                                              </TableCell>
-                                                              <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '110px' }}>Customer Name</TableCell>
-                                                              <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '110px' }}>Factoring Company</TableCell>
-                                                              <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '110px' }}>Due Date</TableCell>
-                                                              <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '48px' }}>
-                                                                  Invoice Total
-                                                                  <stack style={{ display: 'flex', alignItems: 'center', marginTop: '1px' }}>
-                                                                      <Box
-                                                                          sx={{
-                                                                          width: 10,height: 10,borderRadius: 1,display: 'inline-block',bgcolor: 'green','&:hover': {bgcolor: 'darkgreen',},
-                                                                          }}
-                                                                      />
-                                                                          <Typography variant="body2" style={{ marginLeft: '5px' }}>Paid</Typography>
-                                                                      <Box
-                                                                        sx={{
-                                                                          width: 10,height: 10,marginLeft: 1,borderRadius: 1,display: 'inline-block',bgcolor: 'red', '&:hover': {bgcolor: 'darkred', },
-                                                                        }}
-                                                                      />
-                                                                          <Typography variant="body2" style={{ marginLeft: '5px' }}>Unpaid</Typography>
-                                                                  </stack>
-                                                              </TableCell>
-                                                            </TableRow>
-                                                        </TableHead>
-                                                        <TableBody>
-                                                          {tableData.map((row, index) => (
-                                                            <TableRow key={index}>
-                                                            <TableCell style={{ paddingRight: '125px' }}>
-                                                                <Checkbox />
-                                                                {row.invoiceNo}
-                                                            </TableCell>
-                                                            <TableCell>{row.customerName}</TableCell>
-                                                            <TableCell>{row.factoringCompany}</TableCell>
-                                                            <TableCell>{row.dueDate}</TableCell>
-                                                            <TableCell>{row.invoice}</TableCell>
-                                                            </TableRow>
-                                                            ))}
-                                                        </TableBody>
-                                                    </Table>
-                                                </Box>
-                                                <Button variant="outlined" onClick={handleCloseTable}>
-                                                    Close Table
-                                                </Button>
-                                            </Box>
-                                        </stack>
-                                    )} */}
                                     <Button
                                         variant="outlined"
                                         style={{ fontSize: '9px', height: '25px', padding: '3px 8px' }}
@@ -296,9 +219,8 @@ export default function Accounting() {
                 </stack>
 
 
-
                 <stack>
-                    <Card sx={{ width: 380, position: 'relative', cursor: 'pointer', backgroundColor: isExpensesClicked ? '#e0e0e0' : 'inherit' }} onClick={handleExpensesClick} >
+                    <Card sx={{ width: 280, position: 'relative', cursor: 'pointer', backgroundColor: isExpensesClicked ? '#e0e0e0' : 'inherit' }} onClick={handleExpensesClick} >
                         <CardContent>
                             <PriceChangeTwoToneIcon fontSize="small" />
                             <Typography gutterBottom variant="h5" sx={{ display: 'inline-block', marginLeft: '8px' }}>
@@ -354,69 +276,10 @@ export default function Accounting() {
                                       </Typography>
                                     </Avatar>
                                   }
-                                //   onClick={handleButtonClick1}
                                 >
                                   All
                                 </Button>
-                                {/* <TableContent openTable1={openTable1} handleCloseTable1={handleCloseTable1} /> */}
                                 </stack>
-                                {/* {openTable && (
-                                    <stack style={{ position: 'absolute', top: 85, left: 1, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
-                                        <Box sx={{ border: "1px solid #ccc", borderRadius: 4, padding: 2 }}>
-                                            <Box sx={{maxHeight: '300px', overflowY: 'auto',}}>
-                                                <Table>
-                                                  <TableHead>
-                                                    <TableRow>
-                                                      <TableCell style={{ whiteSpace: 'nowrap', paddingRight: '94px' }}>
-                                                        <stack style={{ display: 'flex', alignItems: 'center' }}>
-                                                          <Checkbox />
-                                                          <Typography style={{ fontWeight: 'bold', marginLeft: '5px' }}>Receipt No.</Typography>
-                                                        </stack>
-                                                      </TableCell>
-                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '97px' }}>Merchant</TableCell>
-                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '72px' }}>Stop Location</TableCell>
-                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '94px' }}>Date</TableCell>
-                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '94px' }}>Paid By</TableCell>
-                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '28px' }}>
-                                                        Total Amount
-                                                        <stack style={{ display: 'flex', alignItems: 'center', marginTop: '1px' }}>
-                                                          <Box
-                                                            sx={{ width: 10,height: 10,borderRadius: 1,display: 'inline-block',bgcolor: 'green','&:hover': {bgcolor: 'darkgreen',},
-                                                            }}
-                                                          />
-                                                          <Typography variant="body2" style={{ marginLeft: '5px' }}>Approved</Typography>
-                                                          <Box
-                                                            sx={{ width: 10,height: 10,marginLeft: 1,borderRadius: 1,display: 'inline-block',bgcolor: 'red','&:hover': {bgcolor: 'darkred',},
-                                                            }}
-                                                          />
-                                                          <Typography variant="body2" style={{ marginLeft: '5px' }}>Declined</Typography>
-                                                        </stack>
-                                                      </TableCell>
-                                                    </TableRow>
-                                                  </TableHead>
-                                                  <TableBody>
-                                                    {tableData.map((row, index) => (
-                                                      <TableRow key={index}>
-                                                        <TableCell style={{ paddingRight: '125px' }}>
-                                                          <Checkbox />
-                                                          {row.invoiceNo}
-                                                        </TableCell>
-                                                        <TableCell>{row.customerName}</TableCell>
-                                                        <TableCell>{row.stopLocation}</TableCell>
-                                                        <TableCell>{row.dueDate}</TableCell>
-                                                        <TableCell>{row.customerName}</TableCell>
-                                                        <TableCell>{row.invoice}</TableCell>
-                                                      </TableRow>
-                                                    ))}
-                                                  </TableBody>
-                                                </Table>
-                                            </Box>
-                                            <Button variant="outlined" onClick={handleCloseTable}>
-                                              Close Table
-                                            </Button>
-                                        </Box>
-                                    </stack>
-                                )} */}
                                 <Button
                                     variant="outlined"
                                     style={{ fontSize: '9px', height: '25px', padding: '3px 8px' }}
@@ -458,7 +321,7 @@ export default function Accounting() {
 
                 
                 <stack>
-                    <Card sx={{ width: 320, position: 'relative', cursor: 'pointer', backgroundColor: isDriverPayClicked ? '#e0e0e0' : 'inherit' }} onClick={handleDriverPayClick}>
+                    <Card sx={{ width: 250, position: 'relative', cursor: 'pointer', backgroundColor: isDriverPayClicked ? '#e0e0e0' : 'inherit' }} onClick={handleDriverPayClick}>
                     	<CardContent>
                     		<Person2TwoToneIcon fontSize="small" />
                     		<Typography gutterBottom variant="h5" sx={{ display: 'inline-block', marginLeft: '8px' }}>
