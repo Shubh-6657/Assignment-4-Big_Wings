@@ -4,7 +4,6 @@ import CardContent from '@mui/material/CardContent';
 import FullscreenExitTwoToneIcon from '@mui/icons-material/FullscreenExitTwoTone';
 import InsertDriveFileTwoToneIcon from '@mui/icons-material/InsertDriveFileTwoTone';
 import PriceChangeTwoToneIcon from '@mui/icons-material/PriceChangeTwoTone';
-import Person2TwoToneIcon from '@mui/icons-material/Person2TwoTone';
 import ScreenShareOutlinedIcon from '@mui/icons-material/ScreenShareOutlined';
 import { Button, Avatar, Typography, Table, Box, TableHead, TableRow, TableCell, TableBody, Select } from "@mui/material";
 import TextField from "@mui/material/TextField";
@@ -13,25 +12,22 @@ import InputAdornment from '@mui/material/InputAdornment';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Checkbox from '@mui/material/Checkbox';
 import TableContent,{ tableData } from './TableContent';
-import ExpensesModal from './ExpensesModal'; 
-import MenuItem from '@mui/material/MenuItem';  
+import ExpensesModal from './ExpensesModal';
+import MenuItem from '@mui/material/MenuItem';
+import './Accountingstyle.css'; 
 
 export default function Accounting() {
     const [isInvoiceClicked, setIsInvoiceClicked] = useState(false);
     const [isExpensesClicked, setIsExpensesClicked] = useState(false);
     const [isDriverPayClicked, setIsDriverPayClicked] = useState(false);
-    const [openTable, setOpenTable] = React.useState(false);
-    const [open, setOpen] = React.useState(false);
+    const [openTable, setOpenTable] = useState(false);
+    const [open, setOpen] = useState(false);
+
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const handleButtonClick = () => {
-      setOpenTable(true);
-    };
-
-    const handleCloseTable = () => {
-      setOpenTable(false);
-    };
+    const handleButtonClick = () => setOpenTable(true);
+    const handleCloseTable = () => setOpenTable(false);
 
     const handleInvoiceClick = () => {
         setIsInvoiceClicked(!isInvoiceClicked);
@@ -53,40 +49,46 @@ export default function Accounting() {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        //form submission logic
-      };
-       
-    return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
-            <stack style={{ position: 'absolute', top: 70, right: 27 }}>
-            <Select sx={{  width: '140px', maxWidth: '200px', mb: '10px', height: '42px' }} inputProps={{ 'aria-label': 'Without label' }}>
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>This Month</MenuItem>
-                        <MenuItem value={20}>Jan</MenuItem>
-                        <MenuItem value={30}>Feb</MenuItem>
-                      </Select>
-            </stack>
+        // Form submission logic
+    };
 
-            <Box style={{ position: 'absolute', top: 75, left: 75, display: 'flex', alignItems: 'center', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '8px' }}>
-                <Typography variant="h4" style={{ fontWeight: 'bold', marginRight: '10px', fontSize: '13px' }}>
+    return (
+        <Box className="accounting-container">
+            <Box className="select-container">
+                <Select
+                    className="select-dropdown"
+                    inputProps={{ 'aria-label': 'Without label' }}
+                >
+                    <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>This Month</MenuItem>
+                    <MenuItem value={20}>Jan</MenuItem>
+                    <MenuItem value={30}>Feb</MenuItem>
+                </Select>
+            </Box>
+
+            <Box className="overview-container">
+                <Typography variant="h4" className="overview-title">
                     Overview
                 </Typography>
-                <FullscreenExitTwoToneIcon fontSize="small" />
+                <FullscreenExitTwoToneIcon fontSize="small" className="icon-exit" />
             </Box>
-            <Box component="main" sx={{ xs: '100%', sm: '33%',flexGrow: 1, p: 3 ,marginLeft: '50px', display: 'flex', gap: '20px'}}>
 
-                <stack>
-                    <Card sx={{ width: 380, maxWidth: '500px', position: 'relative', cursor: 'pointer', mb: '20px', backgroundColor: isInvoiceClicked ? '#e0e0e0' : 'inherit' }} onClick={handleInvoiceClick}>
+            <Box className="main-content">
+                <Box className="invoice-card">
+                    <Card
+                        className={`invoice-card-content ${isInvoiceClicked ? 'active' : ''}`}
+                        onClick={handleInvoiceClick}
+                    >
                         <CardContent>
                             <InsertDriveFileTwoToneIcon fontSize="small" />
-                            <Typography gutterBottom variant="h5" sx={{ display: 'inline-block', marginLeft: '8px' }}>
+                            <Typography gutterBottom variant="h5" className="card-title">
                                 Invoice
                             </Typography>
-                            <ScreenShareOutlinedIcon sx={{ position: 'absolute', top: 20, right: 5 }} />
+                            <ScreenShareOutlinedIcon className="icon-share" />
                         </CardContent>
-                        <CardContent style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '-23px' }}>
+                        <CardContent className="card-details" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '-23px' }}>
 	                        <stack style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 	                            <stack style={{ display: 'flex', alignItems: 'center' }}>
                                     <Avatar aria-label="recipe" sx={{ width: 24, height: 24, backgroundColor: '#EF0561' }}>
@@ -142,13 +144,13 @@ export default function Accounting() {
                         </CardContent>
                     </Card>
                     {isInvoiceClicked && (
-                        <stack style={{ position: 'absolute', top: 314, left: 65, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
+                        <Box className="invoice-details">
                             <stack>
                                 <Typography variant="h4" style={{ fontWeight: 'bold', marginRight: '10px', fontSize: '13px' }}>
                                     Invoices
                                 </Typography>
                             </stack>
-                            <stack style={{ display: 'flex', gap: '15px', marginTop: '10px' }}>
+                            <stack style={{ display: 'flex', gap: '24.5px', marginTop: '10px' }}>
                                 <stack sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
                                 <Button
                                   variant="outlined"
@@ -214,21 +216,23 @@ export default function Accounting() {
                                     </Button>
                                 <LogoutIcon sx={{ fontSize: 20, height: 20, cursor: 'pointer' }} />
                             </stack>
-                        </stack>
+                        </Box>
                     )}
-                </stack>
+                </Box>
 
-
-                <stack>
-                    <Card sx={{ width: 280, position: 'relative', cursor: 'pointer', backgroundColor: isExpensesClicked ? '#e0e0e0' : 'inherit' }} onClick={handleExpensesClick} >
+                <Box className="expenses-card">
+                    <Card
+                        className={`expenses-card-content ${isExpensesClicked ? 'active' : ''}`}
+                        onClick={handleExpensesClick}
+                    >
                         <CardContent>
                             <PriceChangeTwoToneIcon fontSize="small" />
-                            <Typography gutterBottom variant="h5" sx={{ display: 'inline-block', marginLeft: '8px' }}>
+                            <Typography gutterBottom variant="h5" className="card-title">
                                 Expenses
                             </Typography>
-                            <ScreenShareOutlinedIcon sx={{ position: 'absolute', top: 20, right: 5 }} />
+                            <ScreenShareOutlinedIcon className="icon-share" />
                         </CardContent>
-                        <CardContent style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '-23px' }}>
+                        <CardContent className="card-details" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '-23px' }}>
                             <stack style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                 <stack style={{ display: 'flex', alignItems: 'center' }}>
                                     <Avatar aria-label="recipe" sx={{ width: 24, height: 24, backgroundColor: '#EF0561' }}>
@@ -258,13 +262,13 @@ export default function Accounting() {
                         </CardContent>
                     </Card>
                     {isExpensesClicked && (
-                        <stack style={{ position: 'absolute', top: 314, left: 65, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)'}}>
+                        <Box className="expenses-details">
                             <stack>
                                 <Typography variant="h4" style={{ fontWeight: 'bold', marginRight: '10px', fontSize: '13px' }}>
                                     Expenses
                                 </Typography>
                             </stack>
-                            <stack style={{ display: 'flex', gap: '15px', marginTop: '10px' }}>
+                            <stack style={{ display: 'flex', gap: '18px', marginTop: '10px' }}>
                                 <stack sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
                                 <Button
                                   variant="outlined"
@@ -276,10 +280,89 @@ export default function Accounting() {
                                       </Typography>
                                     </Avatar>
                                   }
+                                  onClick={handleButtonClick}
                                 >
                                   All
                                 </Button>
                                 </stack>
+                                {openTable && (
+                                    <div style={{ position: 'absolute', top: 85, left: 1, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)' }}>
+                                        <Box sx={{ border: "1px solid #ccc", borderRadius: 4, padding: 2 }}>
+                                          {/* <Typography variant="h6" gutterBottom>
+                                            All
+                                          </Typography> */}
+                                            <Box sx={{maxHeight: '300px', overflowY: 'auto',}}>
+                                                <Table>
+                                                  <TableHead>
+                                                    <TableRow>
+                                                      <TableCell style={{ whiteSpace: 'nowrap', paddingRight: '94px' }}>
+                                                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                                                          <Checkbox />
+                                                          <Typography style={{ fontWeight: 'bold', marginLeft: '5px' }}>Receipt No.</Typography>
+                                                        </div>
+                                                      </TableCell>
+                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '97px' }}>Merchant</TableCell>
+                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '72px' }}>Stop Location</TableCell>
+                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '94px' }}>Date</TableCell>
+                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '94px' }}>Paid By</TableCell>
+                                                      <TableCell style={{ fontWeight: 'bold', whiteSpace: 'nowrap', paddingRight: '28px' }}>
+                                                        Total Amount
+                                                        <div style={{ display: 'flex', alignItems: 'center', marginTop: '1px' }}>
+                                                          <Box
+                                                            sx={{
+                                                              width: 10,
+                                                              height: 10,
+                                                              borderRadius: 1,
+                                                              display: 'inline-block',
+                                                              bgcolor: 'green',
+                                                              '&:hover': {
+                                                                bgcolor: 'darkgreen',
+                                                              },
+                                                            }}
+                                                          />
+                                                          <Typography variant="body2" style={{ marginLeft: '5px' }}>Approved</Typography>
+                                                          <Box
+                                                            sx={{
+                                                              width: 10,
+                                                              height: 10,
+                                                              marginLeft: 1,
+                                                              borderRadius: 1,
+                                                              display: 'inline-block',
+                                                              bgcolor: 'red',
+                                                              '&:hover': {
+                                                                bgcolor: 'darkred',
+                                                              },
+                                                            }}
+                                                          />
+                                                          <Typography variant="body2" style={{ marginLeft: '5px' }}>Declined</Typography>
+                                                        </div>
+                                                      </TableCell>
+                                                    </TableRow>
+                                                  </TableHead>
+                                                  <TableBody>
+                                                    {tableData.map((row, index) => (
+                                                      <TableRow key={index}>
+                                                        <TableCell style={{ paddingRight: '125px' }}>
+                                                          <Checkbox />
+                                                          {row.invoiceNo}
+                                                        </TableCell>
+                                                        <TableCell>{row.customerName}</TableCell>
+                                                        <TableCell>{row.stopLocation}</TableCell>
+                                                        <TableCell>{row.dueDate}</TableCell>
+                                                        <TableCell>{row.customerName}</TableCell>
+                                                        <TableCell>{row.invoice}</TableCell>
+                                                      </TableRow>
+                                                    ))}
+                                                  </TableBody>
+                                                </Table>
+                                            </Box>
+                                            {/* Button to close table */}
+                                            <Button variant="outlined" onClick={handleCloseTable}>
+                                              Close Table
+                                            </Button>
+                                        </Box>
+                                    </div>
+                                )}
                                 <Button
                                     variant="outlined"
                                     style={{ fontSize: '9px', height: '25px', padding: '3px 8px' }}
@@ -315,22 +398,24 @@ export default function Accounting() {
                                 </stack>
                                 <LogoutIcon sx={{ fontSize: 20, height: 20, cursor: 'pointer' }} />
                             </stack>
-                        </stack>
+                        </Box>
                     )}
-                </stack>
+                </Box>
 
-                
-                <stack>
-                    <Card sx={{ width: 250, position: 'relative', cursor: 'pointer', backgroundColor: isDriverPayClicked ? '#e0e0e0' : 'inherit' }} onClick={handleDriverPayClick}>
-                    	<CardContent>
-                    		<Person2TwoToneIcon fontSize="small" />
-                    		<Typography gutterBottom variant="h5" sx={{ display: 'inline-block', marginLeft: '8px' }}>
-                    			Driver Pay
-                    		</Typography>
-                    		<ScreenShareOutlinedIcon sx={{ position: 'absolute', top: 20, right: 5 }} />
-                    	</CardContent>
-                    	<CardContent style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '-23px' }}>
-                    	    <stack style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <Box className="driverpay-card">
+                    <Card
+                        className={`driverpay-card-content ${isDriverPayClicked ? 'active' : ''}`}
+                        onClick={handleDriverPayClick}
+                    >
+                        <CardContent>
+                            <PriceChangeTwoToneIcon fontSize="small" />
+                            <Typography gutterBottom variant="h5" className="card-title">
+                                Driver Pay
+                            </Typography>
+                            <ScreenShareOutlinedIcon className="icon-share" />
+                        </CardContent>
+                        <CardContent className="card-details">
+                        <stack style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                 <stack style={{ display: 'flex', alignItems: 'center' }}>
                                     <Avatar aria-label="recipe" sx={{ width: 24, height: 24, backgroundColor: '#EF0561' }}>
                                         <Typography variant="body2" style={{ fontSize: '10px' }}>15</Typography>
@@ -359,7 +444,7 @@ export default function Accounting() {
                         </CardContent>
                     </Card>
                     {isDriverPayClicked && (
-                        <stack style={{ position: 'absolute', top: 314, left: 65, backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)'}}>
+                        <Box className="driverpay-details">
                             <stack>
                                 <Typography variant="h4" style={{ fontWeight: 'bold', marginRight: '10px', fontSize: '13px' }}>
                                     Invoices
@@ -472,9 +557,9 @@ export default function Accounting() {
                                 </Button>       
                                 <LogoutIcon sx={{ fontSize: 20, height: 20, cursor: 'pointer' }} />
                             </stack>
-                        </stack>
+                        </Box>
                     )}
-                </stack>
+                </Box>
             </Box>
         </Box>
     );
