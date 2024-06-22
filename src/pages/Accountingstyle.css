@@ -40,23 +40,63 @@
 }
 
 .main-content {
+    gap: 20px;
+    margin-left: 45px;
+    width: 100%;
+    max-width: 95%;
+    flex-grow: 1;
+    /* padding: 16px; */
     display: flex;
     gap: 20px;
-    margin-left: 50px;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    margin-top: 5px;
 }
 
-.invoice-card,
-.expenses-card,
-.driverpay-card {
-    flex-wrap:wrap;
+.invoice-card {
+    /* flex-wrap:wrap;
     width: 380px;
     max-width: 500px;
     position: relative;
     cursor: pointer;
     margin-bottom: 20px;
-    background-color: inherit;
+    background-color: inherit; */
+    width: 440px;
+    max-width: 500px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
 }
 
+.expenses-card {
+    /* flex-wrap:wrap;
+    width: 380px;
+    max-width: 500px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 20px;
+    background-color: inherit; */
+    width: 350px;
+    max-width: 500px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.driverpay-card {
+    /* flex-wrap:wrap;
+    width: 380px;
+    max-width: 500px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 20px;
+    background-color: inherit; */
+    width: 340px;
+    max-width: 500px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
 .card-title {
     display: inline-block;
     margin-left: 8px;
