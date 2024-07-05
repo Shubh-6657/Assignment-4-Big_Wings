@@ -44,6 +44,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+// import { containerClasses } from '@mui/material';
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -59,6 +60,8 @@ function MyApp() {
         bgcolor: 'background.default',
         color: 'text.primary',
         borderRadius: 1,
+        padding:.1,
+        paddingLeft:1.5
       }}
     >
       {theme.palette.mode} mode
@@ -242,7 +245,7 @@ export default function MiniDrawer() {
         <div>
           <img
             src={img2}
-            style={{ height: '48px', width: '188px' }}
+            style={{ height: '48px', width: '188px' , objectFit : 'contain'}}
             alt="Dynamic Portage Salarial"
           />
         </div>
@@ -254,90 +257,95 @@ export default function MiniDrawer() {
       <List>
         <Box sx={{ typography: 'body1' }}>
           <ListItemButton onClick={handleClick1}>
-            <Link href="/dashboard" sx={{ display: 'flex' }}>
-              <ListItemIcon>
+            <Link href="/dashboard" sx={{ display: 'flex',textDecoration: 'none', color: 'black' }}>
+              <ListItemIcon style={{ color:mode === 'light'?   "#01AAE9" : "#fff" }}>
                 <DashboardIcon />
               </ListItemIcon>
-              <ListItemText primary="Dashboard" />
+              <ListItemText primary="Dashboard" style={{ color:mode === 'light'?   "black" : "#fff" }}/>
             </Link>
             {open1 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
           <ListItemButton onClick={handleClick2}>
-            <Link href="/dispatch" sx={{ display: 'flex' }}>
-              <ListItemIcon>
+            <Link href="/dispatch" sx={{ display: 'flex' ,textDecoration: 'none' , color: 'black'}}>
+              <ListItemIcon style={{ color:mode === 'light'?   "#01AAE9" : "#fff" }}>
                 <FireTruckIcon />
               </ListItemIcon>
-              <ListItemText primary="Dispatch Board" />
+              <ListItemText primary="Dispatch Board" style={{ color:mode === 'light'?   "black" : "#fff" }}/>
             </Link>
             {open2 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
           <ListItemButton onClick={handleClick3}>
-            <Link href="/vehicle" sx={{ display: 'flex' }}>
-              <ListItemIcon>
+            <Link href="/vehicle" sx={{ display: 'flex' ,textDecoration: 'none' , color: 'black'}}>
+              <ListItemIcon style={{ color:mode === 'light'?   "#01AAE9" : "#fff" }}>
                 <LocalShippingIcon />
               </ListItemIcon>
-              <ListItemText primary="Vehicle" />
+              <ListItemText primary="Vehicle" style={{ color:mode === 'light'?   "black" : "#fff" }}/>
             </Link>
             {open3 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
           <ListItemButton onClick={handleClick4}>
-            <Link href="/drivers" sx={{ display: 'flex' }}>
-              <ListItemIcon>
+            <Link href="/drivers" sx={{ display: 'flex' ,textDecoration: 'none' , color: 'black'}}>
+              <ListItemIcon style={{ color:mode === 'light'?   "#01AAE9" : "#fff" }}>
                 <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary="Drivers" />
+              <ListItemText primary="Drivers" style={{ color:mode === 'light'?   "black" : "#fff" }}/>
             </Link>
             {open4 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
           <ListItemButton onClick={handleClick5}>
-            <ListItemIcon>
+            <ListItemIcon style={{ color:mode === 'light'?   "#01AAE9" : "#fff" }}>
               <AccountBalanceWalletIcon />
             </ListItemIcon>
-            <Link href="/accounting"><ListItemText primary="Accounting" /></Link>
+            <Link href="/accounting" sx={{ display: 'flex' ,textDecoration: 'none' , color: 'black'}}><ListItemText primary="Accounting" style={{ color:mode === 'light'?   "black" : "#fff" }}/></Link>
             {open5 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
           <ListItemButton onClick={handleClick6}>
-            <ListItemIcon>
+            <ListItemIcon style={{ color:mode === 'light'?   "#01AAE9" : "#fff" }}>
               <TextSnippetIcon />
             </ListItemIcon>
-            <Link href="/reports"><ListItemText primary="Reports" /></Link>
+            <Link href="/reports" sx={{ display: 'flex' ,textDecoration: 'none' , color: 'black'}}><ListItemText primary="Reports" style={{ color:mode === 'light'?   "black" : "#fff" }}/>
+            </Link>
             {open6 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
           <ListItemButton onClick={handleClick7}>
-            <ListItemIcon>
+            <ListItemIcon style={{ color:mode === 'light'?   "#01AAE9" : "#fff" }}>
               <GavelIcon />
             </ListItemIcon>
-            <Link href="/compliance"><ListItemText primary="Compliance" /></Link>
+            <Link href="/compliance" sx={{ display: 'flex' ,textDecoration: 'none' , color: 'black'}}><ListItemText primary="Compliance" style={{ color:mode === 'light'?   "black" : "#fff" }}/>
+            </Link>
             {open7 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
           <ListItemButton onClick={handleClick8}>
-            <ListItemIcon>
+            <ListItemIcon style={{ color:mode === 'light'?   "#01AAE9" : "#fff" }}>
               <LocalGasStationIcon />
             </ListItemIcon>
-            <Link href="/ifta"><ListItemText primary="IFTA" /></Link>
+            <Link href="/ifta" sx={{ display: 'flex' ,textDecoration: 'none' , color: 'black'}}><ListItemText primary="IFTA" style={{ color:mode === 'light'?   "black" : "#fff" }}/>
+            </Link>
             {open8 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
           <ListItemButton onClick={handleClick9}>
-            <ListItemIcon>
+            <ListItemIcon style={{ color:mode === 'light'?   "#01AAE9" : "#fff" }}>
               <BookmarkAddedIcon />
             </ListItemIcon>
-            <Link href="/inspection"><ListItemText primary="Inspection" /></Link>
+            <Link href="/inspection" sx={{ display: 'flex' ,textDecoration: 'none' , color: 'black'}}><ListItemText primary="Inspection" style={{ color:mode === 'light'?   "black" : "#fff" }}/>
+            </Link>
             {open9 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
           <ListItemButton onClick={handleClick10}>
-            <ListItemIcon>
+            <ListItemIcon style={{ color:mode === 'light'?   "#01AAE9" : "#fff" }}>
               <MoreHorizIcon />
             </ListItemIcon>
-            <Link href="/more"><ListItemText primary="More" /></Link>
+            <Link href="/more" sx={{ display: 'flex' ,textDecoration: 'none' , color: 'black'}}><ListItemText primary="More" style={{ color:mode === 'light'?   "black" : "#fff" }}/>
+            </Link>
             {open10 ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </Box>

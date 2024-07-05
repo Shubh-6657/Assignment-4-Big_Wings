@@ -91,7 +91,7 @@
     cursor: pointer;
     margin-bottom: 20px;
     background-color: inherit; */
-    flex-grow: 5;
+    flex-grow: 1;
     width: 340px;
     max-width: 500px;
     cursor: pointer;
@@ -123,8 +123,8 @@
 
 .invoice-details{
     position: absolute;
-    top: 214px;
-    left: 5px;
+    top: 40%;
+    left: 7%;
     background-color: #fff;
     padding: 10px;
     border-radius: 8px;
@@ -133,8 +133,8 @@
 
 .expenses-details {
     position: absolute;
-    top: 190px;
-    left: -394px;
+    top: 40%;
+    left: 94px;
     background-color: #fff;
     padding: 10px;
     border-radius: 8px;
@@ -143,8 +143,8 @@
 
 .driverpay-details {
     position: absolute;
-    top: 190px;
-    left: -795px;
+    top: 40%;
+    left: 95px;
     background-color: #fff;
     padding: 10px;
     border-radius: 8px;

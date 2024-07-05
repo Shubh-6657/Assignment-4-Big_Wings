@@ -13,10 +13,12 @@ import Inspection from "./pages/Inspection";
 import More from "./pages/More";
 import { Route, Routes } from "react-router-dom";
 import AddDriverForm from "./pages/AddDriverForm";
-import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
-import Box from '@mui/joy/Box';
-import Button from '@mui/joy/Button';
+// import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
+// import Box from '@mui/joy/Box';
+// import Button from '@mui/joy/Button';
+import { Box, Button , } from "@mui/material";
 import  { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useTheme } from "@emotion/react";
 
 // const useEnhancedEffect =
 //   typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
@@ -24,7 +26,7 @@ import  { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme();
 
 function ModeSwitcher() {
-  const { mode, setMode } = useColorScheme();
+  const { mode, setMode } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -50,11 +52,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <>
-    <CssVarsProvider
-    // colorSchemeNode={node || null}
-    colorSchemeSelector="#mode-toggle"
-    modeStorageKey="mode-toggle-demo"
-  >
+
     <Box
       id="mode-toggle"
       sx={{
@@ -94,7 +92,6 @@ function App() {
       </Routes>
     </div>
      </Box>
-    </CssVarsProvider>
     </>
     </ThemeProvider>
   ); 
