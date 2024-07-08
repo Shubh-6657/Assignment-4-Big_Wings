@@ -8,6 +8,50 @@
     width: 100%;
     height: 100%;
 }
+
+.ele1{
+    padding: 16px;
+    width: 100%;
+    height: 160px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.element1{
+    flex: 1;
+}
+
+.Progress-bar{
+    height: 40%;
+    width: 80%;
+    margin-bottom: 2px;
+}
+
+.selectDropdown1 {
+    width: 70px;
+    height: 25px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.inViolationStack1 {
+    display: flex;
+    align-items: center;
+    margin-top: 1px;
+}
+
+.inViolationStack2 {
+    display: flex;
+    align-items: center;
+    margin-top: 1px;
+}
+.ho{
+    display: block;
+}
+
 .table-details{
     /* flex-wrap: wrap; */
     /* overflow: scroll; */
@@ -77,22 +121,24 @@
 .stack {
     display: flex;
     gap: 24.5px;
-    margin-top: 10px;
-    flex-wrap: wrap; 
+    flex-direction: row;
+    /* margin-top: 10px; */
+    /* flex-wrap: wrap;  */
 }
 
 .stackColumn {
-    justify-content: center;
+    /* justify-content: center; */
     /* display: flex; */
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* padding: 20px; */
+    display: flex;
     flex: 1; 
-    gap: 10px; 
+    /* gap: 10px;  */
 }
 
 .buttonOutlined {
-    font-size: 9px;
+    font-size: 12px;
     height: 25px;
     padding: 3px 8px;
     text-transform: none; 
@@ -121,14 +167,14 @@
 
 .tableContainer1 {
     position: absolute;
-    top: 670px;
+    top: 590px;
     left: 68px;
     background-color: #fff;
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-    width: 100%;
-    max-width: 1800px; 
+    width: 95.5%;
+    /* max-width: 1800px;  */
     margin: 0 auto; 
     box-sizing: border-box; 
 }
@@ -147,9 +193,13 @@
 .tableHeaderCell1 {
     font-weight: bold;
     white-space: nowrap;
-    padding-right: 110px;
+    /* padding-right: 10px; */
+    text-align: center;
 }
 
+.tableDataCell1{
+    text-align: center;
+}
 .inViolationStack {
     display: flex;
     align-items: center;

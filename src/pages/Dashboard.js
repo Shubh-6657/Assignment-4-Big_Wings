@@ -12,6 +12,6 @@ export default function DashBoard() {
     <Typography paragraph>
     Dashboard Portion
     </Typography>
-    </Box>
+    </Box> 
     )
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Box, Typography, Button, Checkbox, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
-import { Pix } from '@mui/icons-material';
 
 export const tableData1 = [
     {
@@ -106,7 +105,7 @@ const ComplianceTable = () => {
                             <Table>
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell className="tableHeaderCell1">
+                                        <TableCell className="tableHeaderCel1">
                                             <Checkbox /> Driver
                                         </TableCell>
                                         <TableCell className="tableHeaderCell1">Duty Status</TableCell>
@@ -135,14 +134,20 @@ const ComplianceTable = () => {
                                 <TableBody>
                                     {tableData1.map((row, index) => (
                                         <TableRow key={index}>
-                                            <TableCell className="tableHeaderCell1">
+                                            <TableCell className="tableDataCel1">
                                                 <Checkbox />
-                                                {row.invoiceNo}
+                                                {row.driver}
                                             </TableCell>
-                                            <TableCell>{row.customerName}</TableCell>
-                                            <TableCell>{row.factoringCompany}</TableCell>
-                                            <TableCell>{row.dueDate}</TableCell>
-                                            <TableCell>{row.invoice}</TableCell>
+                                            <TableCell className="tableDataCell1">{row.dutyStatus}</TableCell>
+                                            <TableCell className="tableDataCell1">{row.currStatus}</TableCell>
+                                            <TableCell className="tableDataCell1">{row.vehicleNum}</TableCell>
+                                            <TableCell className="tableDataCell1">{row.untilBreak}</TableCell>
+                                            <TableCell className="tableDataCell1">{row.driveRem}</TableCell>
+                                            <TableCell className="tableDataCell1">{row.shiftRem}</TableCell>
+                                            <TableCell className="tableDataCell1">{row.cycleRem}</TableCell>
+                                            <TableCell className="tableDataCell1">{row.cycleTom}</TableCell>
+                                            <TableCell className="tableDataCell1">{row.Violation}</TableCell>
+                                            
                                         </TableRow>
                                     ))}
                                 </TableBody>
