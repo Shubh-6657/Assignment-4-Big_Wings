@@ -15,6 +15,7 @@ import TableContent,{ tableData } from './TableContent';
 import ExpensesModal from './ExpensesModal';
 import MenuItem from '@mui/material/MenuItem';
 import './Accountingstyle.css'; 
+// import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
 
 export default function Accounting() {
     const [isInvoiceClicked, setIsInvoiceClicked] = useState(false);
@@ -92,7 +93,8 @@ export default function Accounting() {
 	                        <stack style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 	                            <stack style={{ display: 'flex', alignItems: 'center' }}>
                                     <Avatar aria-label="recipe" sx={{ width: 24, height: 24, backgroundColor: '#EF0561' }}>
-                                        <Typography variant="body2" style={{ fontSize: '10px' }}>15</Typography>
+                                        <Typography variant="body2" style={{ fontSize: '10px' }}>25</Typography>
+                                        {/* <LocalGasStationIcon/> */}
                                     </Avatar>
                                         <Typography variant="body2" style={{ marginLeft: '4px', fontSize: '12px', color: '#EF0561' }}>
                                             Pending

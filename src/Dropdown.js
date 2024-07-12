@@ -360,7 +360,7 @@ export default function MiniDrawer() {
         <ThemeProvider theme={theme1}>
           <CssBaseline />
           {/* AppBar */}
-          <AppBar position="fixed" open={open}>
+          <AppBar position="fixed" open={open} >
             <Toolbar sx={{ justifyContent: 'space-between' }}>
               <IconButton
                 color="inherit"

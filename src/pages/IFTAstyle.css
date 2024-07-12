@@ -1,0 +1,284 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.header-select-container {
+    position: absolute;
+    top: 70px;
+    right: 27px;
+}
+
+.select-dropdown-container{
+    width: 140px;
+    max-width: 200px;
+    margin-bottom: 10px;
+    height: 42px;
+}
+
+.header-overview-container {
+    position: absolute;
+    top: 75px;
+    left: 75px;
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.parent1-card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin: 10px;
+    margin-top: -2%;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+
+@media (max-width: 1200px) {
+    .parent1-card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .parent1-card-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.child1-card-container,
+.child2-card-container,
+.child3-card-container,
+.child4-card-container,
+.child5-card-container,
+.child6-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    min-width: 100%;
+    max-width: 100%;
+    /* width: 400px; */
+}
+
+.circular-box {
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    background-color: #f0f0f0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    margin: 20px;
+}
+
+.card-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-content1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular-box1,
+.circular-box5{
+    border: 4px solid #ccc;
+    border-color: #01EB90;
+    background: #1EB9804C;
+}
+
+.circular-box2{
+    border: 4px solid #ccc;
+    border-color: #FF0266;
+    background: #FF026633;
+}
+.circular-box3{
+    border: 4px solid #ccc;
+    border-color: #0082FB;
+    background: #0082FB33;
+}
+.circular-box4,
+.circular-box6{
+    border: 4px solid #ccc;
+    border-color: #FFA229;
+    background: #FFCF4433;
+}
+
+.Table-portion-container{
+    width: 100%;
+    top: 45%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    overflow: hidden; 
+    /* position: relative;  */
+}
+
+.Table-portionHea-container {
+    display: flex;
+}
+
+.ArrowForwardIcon {
+    display: flex;
+    font-size: 35px;
+    font-weight: 600;
+    align-items: center; 
+}
+
+.forward-icon{
+    font-size: 25px;
+    font-weight: 600;
+}
+.textField1 {
+    width: 25ch;
+    min-width: 100px;
+}
+
+.forward-icon1{
+    font-size: 25px;
+    padding-left: 10%;
+}
+
+.Table-dropdown-container {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.logoutIcon {
+    font-size: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.Dropdown-container {
+    width: 110px;
+    height: 25px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.Export-btn {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px; 
+    font-size: 8px;
+    height: 30px;
+    text-transform: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px; 
+}
+
+.button {
+  margin-top: 20px;
+  margin-bottom: 14px;
+}
+ 
+.buttonOutlined {
+    font-size: 12px;
+    height: 25px;
+    padding: 3px 8px;
+    text-transform: none; 
+    flex: 1; 
+    margin-bottom: 10px; 
+    min-width: 120px; 
+}
+ 
+.buttonWithMargin {
+    margin-right: 18px;
+}
+
+.avatar {
+   width: 20px;
+   height: 20px;
+}
+
+.typography {
+    font-size: 8px;
+}
+
+/* CSS Of IFTAtable.js */
+
+.Main-table-container {
+    position: absolute;
+    top: 570px;
+    left: 86px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    width: 93.6%;
+    margin: 0 auto; 
+    box-sizing: border-box; 
+    overflow-x: auto; 
+}
+
+.Table-box-container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.Table-subBox-container {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.Table-header1-container{
+    font-weight: bold;
+}
+
+.Table-header-container {
+    font-weight: bold;
+    white-space: nowrap;
+    /* padding-right: 10px; */
+}
+
+.Table-data2-container{
+    padding-left: 25px;
+}
+
+.Table-data-container{
+    padding-left: 39px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+    .Table-subBox-container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 408px) {
+    .Table-subBox-container {
+        width: 100%;
+        left: 0;
+        top: 600px; 
+    }
+
+    .Table-header-container {
+        padding-right: 50px; 
+    }
+}
+
+/* End of CSS of IFTAtable */
+
+
+
+
+

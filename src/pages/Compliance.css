@@ -1,40 +1,105 @@
-.Cards{
+.Card{
     margin: 6px;
     margin-top: -30px;
 }
-.Card1{
+.Card-first{
     display: block;
     flex-grow: 1;
     width: 100%;
     height: 100%;
 }
 
-.ele1{
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* gap: 16px; 
+    width: 100%; */
+}
+
+  /* .column-grid{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden; 
+} */
+ 
+.sections{
     padding: 16px;
     width: 100%;
     height: 160px;
+    border-right: 1px solid black;
 }
 
 .flex-container {
   display: flex;
   flex-direction: row;
+  /* margin: 2%; */
 }
 
 .element1{
-    flex: 1;
+    flex: 0.8;
+    /* margin-top: 5% */
+    /* height: 60%; */
 }
 
 .Progress-bar{
-    height: 40%;
-    width: 80%;
-    margin-bottom: 2px;
+    height: 30%;
+    width: 95%;
+    margin-bottom: 14px;
+}
+
+.pp{
+    margin-top: 2.2%;
+}
+
+.abc {
+    display: flex;
+    gap: 10%;
+    /* align-items: center; */
+    /* margin-top: 1px; */
+}
+
+.inViolation {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 8px; 
+}
+  
+.violationBox1 {
+    width: 10px;
+    height: 10px;
+    border-radius: 1px;
+    display: inline-block;
+    margin-right: 3px;
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.section1-part2{
+    display: block;
+    margin-right: -14%;
+}
+
+.section2-part2{
+    margin-top: 5%;
 }
 
 .selectDropdown1 {
-    width: 70px;
+    width: 110px;
     height: 25px;
     font-size: 13px;
     cursor: pointer;
+}
+
+.flex-container1 {
+    display: flex;
+    flex-direction: row;
+    margin: 2%;
+}
+  
+.violationTypography {
+   margin: 0; 
 }
 
 .inViolationStack1 {
@@ -43,19 +108,22 @@
     margin-top: 1px;
 }
 
+.sections3{
+    padding: 16px;
+    width: 100%;
+    height: 160px;
+}
+
 .inViolationStack2 {
     display: flex;
     align-items: center;
     margin-top: 1px;
 }
-.ho{
-    display: block;
-}
+
+
 
 .table-details{
-    /* flex-wrap: wrap; */
-    /* overflow: scroll; */
-    top: 43%;
+    top: 45%;
     background-color: #fff;
     padding: 10px;
     border-radius: 8px;
@@ -69,7 +137,6 @@
 
 .driverHOSContainer {
     display: flex;
-    /* align-items: start; */
 }
 
 .TableHeader {
@@ -80,19 +147,11 @@
 }
 
 
-.DriverHOS {
-    font-weight: bold;
-    font-size: 13px;
-    margin-left: 8px;
-}
+DriverHOSDriverHOS
 .textField1 {
     width: 25ch;
     min-width: 100px;
 }
-
-/* .textField .MuiInputBase-input {
-    height: 5px;
-} */
 
 .selectDropdown {
     width: 70px;
@@ -122,19 +181,18 @@
     display: flex;
     gap: 24.5px;
     flex-direction: row;
-    /* margin-top: 10px; */
-    /* flex-wrap: wrap;  */
 }
 
 .stackColumn {
-    /* justify-content: center; */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* padding: 20px; */
     display: flex;
-    flex: 1; 
-    /* gap: 10px;  */
+    flex-direction: row;
+    gap: 60px; 
+    /* white-space: nowrap; */
+  }
+  
+.button {
+   margin-top: 20px;
+   margin-bottom: 14px;
 }
 
 .buttonOutlined {
@@ -145,9 +203,6 @@
     flex: 1; 
     margin-bottom: 10px; 
     min-width: 120px; 
-    /* white-space: nowrap;  */
-    /* overflow: hidden;  */
-    /* text-overflow: ellipsis;  */
 }
 
 .buttonWithMargin {
@@ -167,7 +222,7 @@
 
 .tableContainer1 {
     position: absolute;
-    top: 590px;
+    top: 460px;
     left: 68px;
     background-color: #fff;
     padding: 10px;
@@ -186,7 +241,7 @@
 }
 
 .tableContent1 {
-    max-height: 300px;
+    max-height: 500px;
     overflow-y: auto;
 }
 
@@ -219,7 +274,7 @@
 }
 
 .violationTypography {
-    margin-left: 5px;
+    text-wrap: nowrap;
 }
 
 .nearingViolationBox {
